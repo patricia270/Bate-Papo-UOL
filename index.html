@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="styles.css">  
+    <title>Bate-Papo UOL</title>
+</head>
+<body>
+    <form class="home-screen none">
+        <img class="home-screen-logo" src="assets/logo_uol.png">
+        <input type="text" name="nome" value="" placeholder="Digite seu nome">
+        <button>Entrar</button>
+    </form>
+    <header class="top-bar">
+        <img class="top-bar-logo" src="assets/logo_uol.png">
+        <ion-icon class="icon-people-top" name="people" onclick="showSideBar()"></ion-icon>    
+    </header>    
+    <main class="container">
+        <ul>
+            <li class="login-and-logout">
+                <p>
+                    <span>(09:21:45)</span><strong> João</strong> entra na sala...
+                </p>
+            </li>
+            <li class="message">
+                <p>
+                    <span>(09:22:28)</span><strong> João</strong> para <strong>Todos</strong>: Bom dia
+                </p>
+            </li>
+            <li class="message">
+                <p>
+                    <span>(09:22:38)</span><strong> Maria</strong> para <strong>João</strong>: Oi João :)
+                </p>
+            </li>
+            <li class="private-message">
+                <p>
+                    <span>(09:22:48)</span><strong> João</strong> reservadamente para <strong>Maria</strong>: Oi gatinha quer tc?
+                </p>
+            </li>
+            <li class="login-and-logout">
+                <p>
+                    <span>(09:22:58)</span><strong> Maria</strong> sai da sala...
+                </p>
+            </li>
+        </ul>        
+    </main>    
+    <div class="bottom-bar">
+        <textarea class="write-here" value="mensagem" placeholder="Escreva aqui..."></textarea>
+        <ion-icon class="icon-send-message" name="paper-plane-outline"></ion-icon>
+    </div>
+    <div class="side-bar-box none">
+        <div class="side-bar">
+            <h3 class="contact-list-header">Escolha um contato para enviar mensagem:</h2>
+            <ul class="contact-list">
+                <li class="option" onclick="selectContact(this)">
+                    <ion-icon name="people"></ion-icon>
+                    Todos
+                    <ion-icon class="check" name="checkmark-outline"></ion-icon>
+                </li>
+                <li class="option" onclick="selectContact(this)">
+                    <ion-icon name="person-circle-sharp"></ion-icon>
+                    João
+                    <ion-icon class="check" name="checkmark-outline"></ion-icon>
+                </li>
+                <li class="option" onclick="selectContact(this)">
+                    <ion-icon name="person-circle-sharp"></ion-icon>
+                    Maria
+                    <ion-icon class="check" name="checkmark-outline"></ion-icon>
+                </li>
+            </ul>
+            <h3 class="visibility-choice-list-header">Escolha a visibilidade:</h2>
+            <ul class="visibility-choice-list">
+                <li class="option">
+                    <ion-icon name="lock-open"></ion-icon>
+                    Público
+                    <ion-icon class="check" name="checkmark-outline"></ion-icon>
+                </li>
+                <li class="option">
+                    <ion-icon name="lock-closed"></ion-icon>
+                    Reservadamente
+                    <ion-icon class="check" name="checkmark-outline"></ion-icon>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

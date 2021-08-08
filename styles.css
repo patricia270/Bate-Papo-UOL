@@ -1,0 +1,242 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: #f3f3f3;  
+}
+
+.home-screen {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 2;
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+}
+
+
+.home-screen-logo {
+    height: 92px;
+    width: 130px;
+    margin-top: 72px;
+    margin-bottom: 94px;
+}
+
+button {
+    width: 109px;
+    height: 45px;
+    background-color: #E7E7E7;
+    border-radius: 9px;
+    border: none;
+    margin-top: 15px;
+    color: #696969;
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+}
+
+input {
+    width: 261px;
+    height: 54px;
+    border-radius: 4px;
+    border: 1px solid #D7D7D7;
+    text-align: center;
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+
+}
+
+.top-bar {
+    height: 80px;
+    width: 100%;
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 22px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;  
+    margin-bottom: 100px;
+    z-index: 1;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.top-bar-logo {
+    width: 78px;
+    height: 53px;
+}
+
+.icon-people-top {
+    font-size: 50px;
+}
+
+.container {
+    margin-top: 106px; 
+    width: 100%;
+}
+
+.container p {
+    font-size: 14px;
+}
+
+.container span {
+    color: #AEAEAE;
+}
+
+.login-and-logout {
+    background-color: #DCDCDC;
+    height: 40px;
+    vertical-align: middle;
+    padding: 0 8px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 4px;
+    width: 100%;
+}
+
+.message {
+    background-color: #FFFFFF;
+    height: 40px;
+    width: 100%;
+    vertical-align: middle;
+    padding: 0 8px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.private-message {
+    background-color: #FFDEDE;
+    height: 63px;
+    width: 100%;
+    vertical-align: middle;
+    padding: 0 8px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.bottom-bar {
+    height: 80px;
+    width: 100%;
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 17px;
+    position: fixed;
+    bottom: 0;  
+    right: 0;
+    left: 0;
+    box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.05);
+    z-index: 1;
+}
+
+.icon-send-message {
+    font-size: 30px;    
+}
+
+.write-here {
+    font-style: italic;
+    text-decoration: none;
+    color: rgb(83, 62, 62);
+    font-size: 18px;
+}
+
+textarea {
+    border: none;
+    resize: none;  
+}
+
+textarea::placeholder {
+    padding-top: 10px;
+    color: black;
+}
+
+
+.side-bar-box {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.side-bar {
+    height: 100%;
+    width: calc(100% - 116px);
+    background-color: #FFFFFF;
+    position: absolute;
+    right: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.option {
+    font-family: 'Roboto', sans-serif;
+    margin-right: 27px;
+    height: 36px;
+    font-size: 16px;
+    color: black;
+    position: relative;
+
+}
+
+.side-bar ion-icon {
+    margin-left: 18px;
+    margin-right: 7px;
+    vertical-align: -6px;
+    font-size: 25px;
+}
+
+.check {
+    color: #28BB25;
+    width: 15px;
+    position: absolute;
+    right: 0;
+    --ionicon-stroke-width: 125px;
+    opacity: 0;
+}
+
+.option.selected .check {
+    opacity: 1;
+}
+
+.contact-list-header {
+    width: 170px;
+    height: 84px;
+    font-weight: bold;
+    font-size: 16px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    margin: 0 auto 4px auto;
+}
+
+.visibility-choice-list-header {
+    width: 170px;
+    height: 66px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.none {
+    display: none;
+}

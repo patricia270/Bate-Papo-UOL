@@ -6,7 +6,6 @@ let type;
 let to;
 let onlineUsers = [];
 
-///reyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy
 function joinChatRoom() {
     document.querySelector(".home-screen").classList.add("none");
     document.querySelector(".loading-screen").classList.remove("none")
@@ -27,6 +26,7 @@ function getMessages() {
 
 function validName() {
     document.querySelector(".loading-screen").classList.add("none")
+    getOnlineUsers()
     getMessages();
     setInterval(() => {
         getMessages();
@@ -34,6 +34,9 @@ function validName() {
     setInterval(() => {
         keepOnline();
     }, 5000);
+    setInterval(() => {
+        getOnlineUsers() ;
+    }, 10000);
 }
 
 function invalidName (error) {
@@ -96,6 +99,37 @@ function keepOnline(){
 
 function errorInKeepOnline(){
     console.log("Erro no servidor, recarregue a página.");
+}
+
+let verificationOfOnlineUsers;
+function getOnlineUsers() {
+    verificationOfOnlineUsers = axios.get("https://mock-api.bootcamp.respondeai.com.br/api/v3/uol/participants");
+    verificationOfOnlineUsers.then(listOnlineUsers)
+}
+
+function listOnlineUsers(users) {
+    onlineUsers = users.data;
+    renderOnlineUsers()
+}
+
+function renderOnlineUsers() {
+    const ulonlineUsers = document.querySelector(".contact-list");
+    ulonlineUsers.innerHTML = `
+    <li class="option" onclick="selectContact(this)">
+        <ion-icon name="people"></ion-icon>
+        Todos
+        <ion-icon class="check" name="checkmark-outline"></ion-icon>
+    </li>
+    `;
+    for (let i = 0; i < onlineUsers.length; i++) {
+        ulonlineUsers.innerHTML += `
+        <li class="option" onclick="selectContact(this)">
+            <ion-icon name="person-circle-sharp"></ion-icon>
+            ${onlineUsers[i].name}
+            <ion-icon class="check" name="checkmark-outline"></ion-icon>
+        </li>
+        `;
+    }
 }
 
 function sendMessage() {
@@ -174,6 +208,19 @@ function hideSideBar() {
     let hideSideBar = document.querySelector(".side-bar");
     hideSideBar.classList.add("none");
     let messageRecipient = document.querySelector(".message-recipient");
+
+    if (to !== undefined && type !== undefined) {
+        messageRecipient.innerHTML = `Enviando para ${to} (${type})`;
+    }
+    else if (to !== undefined && type === undefined) {
+        messageRecipient.innerHTML = `Enviando para ${to} (Público)`;
+    }
+    else if (to === undefined && type !== undefined) {
+        messageRecipient.innerHTML = `Enviando para Todos (${type})`;
+    }
+    else {
+        messageRecipient.innerHTML = `Enviando para Todos (Público)`;
+    }
 }
 
 function selectContact(element) {

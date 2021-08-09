@@ -218,6 +218,7 @@ p {
     top: 0;
     z-index: 2;
     background-color: rgba(0, 0, 0, 0.6);
+    overflow-y: hidden;
 }
 
 .side-bar {
@@ -229,6 +230,7 @@ p {
     right: 0;
     font-family: 'Roboto', sans-serif;
     z-index: 2;
+    overflow-y: hidden;
 }
 
 .contact-list {

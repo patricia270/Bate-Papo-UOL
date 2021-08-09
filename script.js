@@ -5,6 +5,7 @@ let count = 0;
 let type;
 let to;
 let onlineUsers = [];
+let verificationOfOnlineUsers;
 
 function joinChatRoom() {
     document.querySelector(".home-screen").classList.add("none");
@@ -101,7 +102,6 @@ function errorInKeepOnline(){
     console.log("Erro no servidor, recarregue a página.");
 }
 
-let verificationOfOnlineUsers;
 function getOnlineUsers() {
     verificationOfOnlineUsers = axios.get("https://mock-api.bootcamp.respondeai.com.br/api/v3/uol/participants");
     verificationOfOnlineUsers.then(listOnlineUsers)

@@ -40,7 +40,6 @@ button {
     margin-top: 15px;
     color: #696969;
     font-size: 18px;
-    font-family: 'Roboto', sans-serif;
 }
 
 .home-screen input {
@@ -50,7 +49,7 @@ button {
     border: 1px solid #D7D7D7;
     text-align: center;
     font-size: 18px;
-    font-family: 'Roboto', sans-serif;
+    outline: 0;
 }
 
 .loading-screen {
@@ -179,10 +178,9 @@ p {
     z-index: 1;
 }
 
-
 .message-recipient {
     color: #AEAEAE;
-    width: 310px;
+    width: 100%;
     height: 25px;
     font-size: 14px;
     font-family: 'Roboto', sans-serif;
@@ -195,12 +193,17 @@ p {
 
 .write-here {
     font-style: italic;
+    width: 100%;
     height: 40px;
     text-decoration: none;
     color: black;
     font-size: 18px;
     border: none;
     outline: 0;
+}
+
+.write-here-box {
+    width: 85%;
 }
 
 .write-here::placeholder {
@@ -234,7 +237,6 @@ p {
 }
 
 .option {
-    font-family: 'Roboto', sans-serif;
     margin-right: 23px;
     padding: 5px 0px;
     font-size: 16px;
@@ -277,7 +279,6 @@ p {
 .visibility-choice-list-header {
     width: 170px;
     height: 66px;
-    font-family: 'Roboto', sans-serif;
     font-weight: bold;
     font-size: 16px;
     display: flex;

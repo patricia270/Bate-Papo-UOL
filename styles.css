@@ -22,9 +22,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-  
 }
-
 
 .home-screen-logo {
     height: 92px;
@@ -45,7 +43,7 @@ button {
     font-family: 'Roboto', sans-serif;
 }
 
-input {
+.home-screen input {
     width: 261px;
     height: 54px;
     border-radius: 4px;
@@ -53,7 +51,37 @@ input {
     text-align: center;
     font-size: 18px;
     font-family: 'Roboto', sans-serif;
+}
 
+.loading-screen {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 2;
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.loading-screen p {
+    text-align: center;
+    font-size: 25px;
+    margin-top: 20px;
+}
+
+.loading {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    -webkit-animation:spin 4s linear infinite;
+    -moz-animation:spin 4s linear infinite;
+    animation:spin 4s linear infinite;
+}
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } 
 }
 
 .top-bar {
@@ -84,6 +112,7 @@ input {
 
 .container {
     margin-top: 106px; 
+    margin-bottom: 84px;
     width: 100%;
 }
 
@@ -91,15 +120,16 @@ input {
     font-size: 14px;
 }
 
-.container span {
+.time {
     color: #AEAEAE;
+    margin-right: 5px;
 }
 
-.login-and-logout {
+.status {
     background-color: #DCDCDC;
-    height: 40px;
+    line-height: 20px;
     vertical-align: middle;
-    padding: 0 8px;
+    padding: 10px 8px;
     display: flex;
     align-items: center;
     margin-bottom: 4px;
@@ -108,24 +138,29 @@ input {
 
 .message {
     background-color: #FFFFFF;
-    height: 40px;
     width: 100%;
     vertical-align: middle;
-    padding: 0 8px;
+    padding: 10px 8px;
     display: flex;
     align-items: center;
     margin-bottom: 4px;
+    line-height: 20px;
 }
 
 .private-message {
     background-color: #FFDEDE;
-    height: 63px;
     width: 100%;
     vertical-align: middle;
-    padding: 0 8px;
+    padding: 13px 8px;
     display: flex;
     align-items: center;
     margin-bottom: 4px;
+    line-height: 20px;
+}
+
+p {
+    width: 100%;
+    overflow-wrap: break-word; 
 }
 
 .bottom-bar {
@@ -144,27 +179,34 @@ input {
     z-index: 1;
 }
 
+
+.message-recipient {
+    color: #AEAEAE;
+    width: 310px;
+    height: 25px;
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    padding-left: 3px;
+}
+
 .icon-send-message {
     font-size: 30px;    
 }
 
 .write-here {
     font-style: italic;
+    height: 40px;
     text-decoration: none;
-    color: rgb(83, 62, 62);
+    color: black;
     font-size: 18px;
-}
-
-textarea {
     border: none;
-    resize: none;  
+    outline: 0;
 }
 
-textarea::placeholder {
+.write-here::placeholder {
     padding-top: 10px;
     color: black;
 }
-
 
 .side-bar-box {
     height: 100%;
@@ -179,19 +221,26 @@ textarea::placeholder {
     height: 100%;
     width: calc(100% - 116px);
     background-color: #FFFFFF;
-    position: absolute;
+    position: fixed;
+    top: 0;
     right: 0;
     font-family: 'Roboto', sans-serif;
+    z-index: 2;
+}
+
+.contact-list {
+    max-height: 114px;
+    overflow-y: scroll;
 }
 
 .option {
     font-family: 'Roboto', sans-serif;
-    margin-right: 27px;
-    height: 36px;
+    margin-right: 23px;
+    padding: 5px 0px;
     font-size: 16px;
     color: black;
     position: relative;
-
+    overflow-wrap: break-word; 
 }
 
 .side-bar ion-icon {
@@ -240,3 +289,5 @@ textarea::placeholder {
 .none {
     display: none;
 }
+
+

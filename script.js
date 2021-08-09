@@ -195,6 +195,15 @@ function unsentMessage(error){
     }
 }
 
+let textBox = document.querySelector(".write-here");
+textBox.addEventListener('focus', function(){
+    textBox.addEventListener('keydown', function(event){
+        if(event.keyCode === 13){
+            sendMessage();
+        }
+    })
+})
+
 function showSideBar() {
     let showSideBarBox = document.querySelector(".side-bar-box");
     showSideBarBox.classList.remove("none");

@@ -20,6 +20,16 @@ function joinChatRoom() {
     joinChatRoomPromise.catch(invalidName);
 }
 
+let textHome = document.querySelector("input");
+textHome.addEventListener('focus', function(){
+    textHome.addEventListener('keydown', function(event){
+        if(event.keyCode === 13){
+            joinChatRoom();
+        }
+    })
+})
+
+
 function getMessages() {
     const getMessagesPromise = axios.get("https://mock-api.bootcamp.respondeai.com.br/api/v3/uol/messages");
     getMessagesPromise.then(listMessages);
@@ -184,7 +194,6 @@ function sendMessage() {
 }
 
 function messageSent() {
-    console.log("enviou com sucesso")
     document.querySelector(".write-here").value = "";
     getMessages();
 }

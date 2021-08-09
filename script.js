@@ -1,9 +1,12 @@
 let messages = [];
 let name;
+let typedMessage;
 let count = 0;
 let type;
 let to;
+let onlineUsers = [];
 
+///reyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy
 function joinChatRoom() {
     document.querySelector(".home-screen").classList.add("none");
     document.querySelector(".loading-screen").classList.remove("none")
@@ -28,6 +31,9 @@ function validName() {
     setInterval(() => {
         getMessages();
     }, 3000);    
+    setInterval(() => {
+        keepOnline();
+    }, 5000);
 }
 
 function invalidName (error) {
@@ -92,6 +98,68 @@ function errorInKeepOnline(){
     console.log("Erro no servidor, recarregue a página.");
 }
 
+function sendMessage() {
+    let messagePosted;
+
+    typedMessage = document.querySelector(".write-here").value;
+    document.querySelector(".write-here").value = "";
+
+    if(typedMessage === ""){
+        return;
+    }
+    if(typedMessage === "\n"){
+        return;
+    }
+
+    if(to !== undefined && type === "Público"){
+        messagePosted = {
+            from: name,
+            to: to,
+            text: typedMessage,
+            type: "message"
+        }
+    }
+    else if(to !== undefined && type === "Reservadamente"){
+        messagePosted = {
+            from: name,
+            to: to,
+            text: typedMessage,
+            type: "private_message"
+        }
+    }
+    else if((to === undefined && type === "Público") || (to === undefined && type === undefined)){
+        messagePosted = {
+            from: name,
+            to: "Todos",
+            text: typedMessage,
+            type: "message"
+        }
+    }
+    else if(to === undefined && type === "Reservadamente"){
+        messagePosted = {
+            from: name,
+            to: "Todos",
+            text: typedMessage,
+            type: "private_message"
+        }
+    }
+
+    const sendMessagePromise = axios.post("https://mock-api.bootcamp.respondeai.com.br/api/v3/uol/messages", messagePosted);
+    sendMessagePromise.then(messageSent);
+    sendMessagePromise.catch(unsentMessage);
+}
+
+function messageSent() {
+    console.log("enviou com sucesso")
+    document.querySelector(".write-here").value = "";
+    getMessages();
+}
+
+function unsentMessage(error){
+    if(error.response.status === 400){
+        window.location.reload();
+    }
+}
 
 function showSideBar() {
     let showSideBarBox = document.querySelector(".side-bar-box");
@@ -105,6 +173,7 @@ function hideSideBar() {
     hideSideBarBox.classList.add("none");
     let hideSideBar = document.querySelector(".side-bar");
     hideSideBar.classList.add("none");
+    let messageRecipient = document.querySelector(".message-recipient");
 }
 
 function selectContact(element) {
